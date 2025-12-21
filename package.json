@@ -1,0 +1,14 @@
+{
+    "name": "trading-platform-monorepo",
+    "private": true,
+    "workspaces": [
+        "apps/*",
+        "packages/*"
+    ],
+    "scripts": {
+        "dev:frontend": "npm --workspace apps/frontend run dev",
+        "dev:backend": "npm --workspace apps/backend run dev",
+        "dev:execution": "npm --workspace apps/execution-service run dev",
+        "dev:event": "npm --workspace apps/event-service run dev"
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "name": "execution-service",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "node src/index.js"
+    },
+    "dependencies": {
+        "@prisma/client": "^6.19.1",
+        "ws": "^8.18.3"
+    }
+}
