@@ -8,6 +8,17 @@ const EVENTS_CHANNEL = process.env.EVENTS_CHANNEL || "events:order:status";
 const ORDERS_CHANNEL = process.env.ORDERS_CHANNEL || "commands:order:submit";
 const PRICES_CHANNEL = process.env.PRICES_CHANNEL || "events:price:update";
 
+const BALANCES_CHANNEL = process.env.BALANCES_CHANNEL || "events:account:balances";
+
+// Charts (candlesticks / klines)
+const CHART_REQ_CHANNEL = process.env.CHART_REQ_CHANNEL || "events:chart:request";
+const CHARTS_CHANNEL = process.env.CHARTS_CHANNEL || "events:chart:update";
+
+// Account info RPC (event-service -> execution-service)
+const ACCOUNT_REQ_CHANNEL = process.env.ACCOUNT_REQ_CHANNEL || "events:account:request";
+const ACCOUNT_RES_CHANNEL = process.env.ACCOUNT_RES_CHANNEL || "events:account:response";
+const ACCOUNT_CACHE_MS = Number(process.env.ACCOUNT_CACHE_MS || 5 * 1000); // 5s
+
 // Symbol metadata (exchange filters like LOT_SIZE / stepSize / minQty)
 const SYMBOL_REQ_CHANNEL = process.env.SYMBOL_REQ_CHANNEL || "events:symbol:request";
 const SYMBOL_RES_CHANNEL = process.env.SYMBOL_RES_CHANNEL || "events:symbol:response";
@@ -17,6 +28,73 @@ let redisPub = null;
 
 // Pending RPC-style requests waiting for execution-service responses
 const pending = new Map(); // id -> { resolve, reject, timeout }
+
+// Pending order ACK waiters (orderId -> { resolve, reject, timeout })
+const pendingAcks = new Map();
+
+// In-memory cache for account snapshot per user
+const accountCache = new Map(); // userId -> { ts, data }
+
+function accountCacheGet(userId) {
+    const key = String(userId || "");
+    const entry = accountCache.get(key);
+    if (!entry) return null;
+    if (Date.now() - entry.ts > ACCOUNT_CACHE_MS) {
+        accountCache.delete(key);
+        return null;
+    }
+    return entry.data;
+}
+
+function accountCacheSet(userId, data) {
+    const key = String(userId || "");
+    accountCache.set(key, { ts: Date.now(), data });
+}
+
+function waitForOrderAck(orderId, timeoutMs = 8000) {
+    const oid = String(orderId || "");
+    return new Promise((resolve, reject) => {
+        if (!oid) return reject(new Error("orderId missing"));
+        const timeout = setTimeout(() => {
+            pendingAcks.delete(oid);
+            reject(new Error("order ack timeout"));
+        }, timeoutMs);
+        pendingAcks.set(oid, { resolve, reject, timeout });
+    });
+}
+
+async function requestAccountInfo({ userId, pinnedAssets = [], timeoutMs = 8000 }) {
+    const uid = String(userId || "");
+    if (!uid) throw new Error("userId is required");
+
+    const cached = accountCacheGet(uid);
+    if (cached) return { fromCache: true, data: cached };
+
+    if (!redisPub) throw new Error("redis publisher not ready");
+
+    const id = `acct-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+    const req = {
+        type: "ACCOUNT_INFO_REQUEST",
+        id,
+        userId: uid,
+        pinnedAssets,
+        replyTo: ACCOUNT_RES_CHANNEL,
+        ts: Date.now(),
+    };
+
+    const p = new Promise((resolve, reject) => {
+        const timeout = setTimeout(() => {
+            pending.delete(id);
+            reject(new Error("account info timeout"));
+        }, timeoutMs);
+        pending.set(id, { resolve, reject, timeout });
+    });
+
+    await redisPub.publish(ACCOUNT_REQ_CHANNEL, JSON.stringify(req));
+    const data = await p;
+    accountCacheSet(uid, data);
+    return { fromCache: false, data };
+}
 
 // In-memory cache: SYMBOL -> { data, ts }
 const symbolCache = new Map();
@@ -117,6 +195,12 @@ const server = http.createServer(async (req, res) => {
                 eventsChannel: EVENTS_CHANNEL,
                 ordersChannel: ORDERS_CHANNEL,
                 pricesChannel: PRICES_CHANNEL,
+                balancesChannel: BALANCES_CHANNEL,
+                chartReqChannel: CHART_REQ_CHANNEL,
+                chartsChannel: CHARTS_CHANNEL,
+                accountReqChannel: ACCOUNT_REQ_CHANNEL,
+                accountResChannel: ACCOUNT_RES_CHANNEL,
+                accountCacheMs: ACCOUNT_CACHE_MS,
                 symbolReqChannel: SYMBOL_REQ_CHANNEL,
                 symbolResChannel: SYMBOL_RES_CHANNEL,
                 symbolCacheMs: SYMBOL_CACHE_MS,
@@ -124,6 +208,31 @@ const server = http.createServer(async (req, res) => {
             })
         );
         return;
+    }
+    // Frontend -> event-service: fetch account balances (pinned + nonZero)
+    // Example: /account-info?userId=abc&pinned=BTC,ETH,USDT
+    if (req.url?.startsWith("/account-info") && req.method === "GET") {
+        try {
+            const u = new URL(req.url, `http://localhost:${PORT}`);
+            const userId = String(u.searchParams.get("userId") || "");
+            const pinnedParam = String(u.searchParams.get("pinned") || "");
+            const pinnedAssets = pinnedParam
+                ? pinnedParam.split(",").map((s) => s.trim()).filter(Boolean)
+                : [];
+
+            if (!userId) {
+                res.writeHead(400, { "Content-Type": "application/json" });
+                return res.end(JSON.stringify({ ok: false, error: "userId query param is required" }));
+            }
+
+            const out = await requestAccountInfo({ userId, pinnedAssets, timeoutMs: 8000 });
+            res.writeHead(200, { "Content-Type": "application/json" });
+            return res.end(JSON.stringify({ ok: true, fromCache: out.fromCache, data: out.data }));
+        } catch (e) {
+            console.error("[event-service] /account-info error:", e);
+            res.writeHead(504, { "Content-Type": "application/json" });
+            return res.end(JSON.stringify({ ok: false, error: e?.message || "timeout" }));
+        }
     }
 
     // Frontend -> event-service: fetch symbol filters (LOT_SIZE, PRICE_FILTER, NOTIONAL, etc)
@@ -149,6 +258,68 @@ const server = http.createServer(async (req, res) => {
             console.error("[event-service] /symbol-info error:", e);
             res.writeHead(504, { "Content-Type": "application/json" });
             return res.end(JSON.stringify({ ok: false, error: e?.message || "timeout" }));
+        }
+    }
+
+    // Frontend -> event-service: request chart stream (execution-service will connect to Binance WS)
+    // Example: POST /charts/subscribe  { symbol: "BTCUSDT", interval: "1m" }
+    if (req.url === "/charts/subscribe" && req.method === "POST") {
+        try {
+            const body = await readJson(req);
+            const symbol = String(body?.symbol || "").toUpperCase();
+            const interval = String(body?.interval || "1m").toLowerCase();
+
+            if (!symbol) {
+                res.writeHead(400, { "Content-Type": "application/json" });
+                return res.end(JSON.stringify({ ok: false, error: "symbol is required" }));
+            }
+            if (!redisPub) {
+                res.writeHead(503, { "Content-Type": "application/json" });
+                return res.end(JSON.stringify({ ok: false, error: "redis publisher not ready" }));
+            }
+
+            const id = `chart-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+            const msg = { type: "CHART_SUBSCRIBE", id, symbol, interval, ts: Date.now() };
+
+            await redisPub.publish(CHART_REQ_CHANNEL, JSON.stringify(msg));
+
+            res.writeHead(200, { "Content-Type": "application/json" });
+            return res.end(JSON.stringify({ ok: true, publishedTo: CHART_REQ_CHANNEL, request: msg }));
+        } catch (e) {
+            console.error("[event-service] /charts/subscribe error:", e);
+            res.writeHead(500, { "Content-Type": "application/json" });
+            return res.end(JSON.stringify({ ok: false, error: "internal error" }));
+        }
+    }
+
+    // Optional: unsubscribe
+    // Example: POST /charts/unsubscribe { symbol: "BTCUSDT", interval: "1m" }
+    if (req.url === "/charts/unsubscribe" && req.method === "POST") {
+        try {
+            const body = await readJson(req);
+            const symbol = String(body?.symbol || "").toUpperCase();
+            const interval = String(body?.interval || "1m").toLowerCase();
+
+            if (!symbol) {
+                res.writeHead(400, { "Content-Type": "application/json" });
+                return res.end(JSON.stringify({ ok: false, error: "symbol is required" }));
+            }
+            if (!redisPub) {
+                res.writeHead(503, { "Content-Type": "application/json" });
+                return res.end(JSON.stringify({ ok: false, error: "redis publisher not ready" }));
+            }
+
+            const id = `chart-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+            const msg = { type: "CHART_UNSUBSCRIBE", id, symbol, interval, ts: Date.now() };
+
+            await redisPub.publish(CHART_REQ_CHANNEL, JSON.stringify(msg));
+
+            res.writeHead(200, { "Content-Type": "application/json" });
+            return res.end(JSON.stringify({ ok: true, publishedTo: CHART_REQ_CHANNEL, request: msg }));
+        } catch (e) {
+            console.error("[event-service] /charts/unsubscribe error:", e);
+            res.writeHead(500, { "Content-Type": "application/json" });
+            return res.end(JSON.stringify({ ok: false, error: "internal error" }));
         }
     }
 
@@ -189,11 +360,33 @@ const server = http.createServer(async (req, res) => {
                 }
             }
 
-            if (orderType === "STOP_MARKET") {
+            // UI uses STOP_MARKET; execution-service maps it to Binance Spot STOP_LOSS.
+            // Also accept Binance-style names directly if the frontend ever sends them.
+            if (orderType === "STOP_MARKET" || orderType === "STOP_LOSS" || orderType === "TAKE_PROFIT") {
                 const stopPrice = Number(body?.stopPrice);
                 if (!Number.isFinite(stopPrice) || stopPrice <= 0) {
                     res.writeHead(400, { "Content-Type": "application/json" });
-                    return res.end(JSON.stringify({ ok: false, error: "STOP_MARKET requires a valid stopPrice" }));
+                    return res.end(JSON.stringify({ ok: false, error: `${orderType} requires a valid stopPrice` }));
+                }
+            }
+
+            // Stop-limit variants require BOTH stopPrice and price + timeInForce
+            if (orderType === "STOP_LOSS_LIMIT" || orderType === "TAKE_PROFIT_LIMIT") {
+                const stopPrice = Number(body?.stopPrice);
+                const price = Number(body?.price);
+                const tif = String(body?.timeInForce || "").toUpperCase();
+
+                if (!Number.isFinite(stopPrice) || stopPrice <= 0) {
+                    res.writeHead(400, { "Content-Type": "application/json" });
+                    return res.end(JSON.stringify({ ok: false, error: `${orderType} requires a valid stopPrice` }));
+                }
+                if (!Number.isFinite(price) || price <= 0) {
+                    res.writeHead(400, { "Content-Type": "application/json" });
+                    return res.end(JSON.stringify({ ok: false, error: `${orderType} requires a valid price` }));
+                }
+                if (!tif) {
+                    res.writeHead(400, { "Content-Type": "application/json" });
+                    return res.end(JSON.stringify({ ok: false, error: `${orderType} requires timeInForce` }));
                 }
             }
 
@@ -209,9 +402,8 @@ const server = http.createServer(async (req, res) => {
                 side,
                 quantity,
                 orderType,
-
-                // Optional fields used by execution-service/Binance
                 price: body?.price,
+                // Optional fields used by execution-service/Binance
                 stopPrice: body?.stopPrice,
                 timeInForce: body?.timeInForce,
 
@@ -227,8 +419,15 @@ const server = http.createServer(async (req, res) => {
             const payload = JSON.stringify(event);
             await redisPub.publish(ORDERS_CHANNEL, payload);
 
-            res.writeHead(200, { "Content-Type": "application/json" });
-            return res.end(JSON.stringify({ ok: true, publishedTo: ORDERS_CHANNEL, event }));
+            // Wait for execution-service to publish ORDER_ACK / ORDER_REJECTED on EVENTS_CHANNEL
+            try {
+                const ack = await waitForOrderAck(event.orderId, 8000);
+                res.writeHead(200, { "Content-Type": "application/json" });
+                return res.end(JSON.stringify({ ok: true, ack }));
+            } catch (e) {
+                res.writeHead(504, { "Content-Type": "application/json" });
+                return res.end(JSON.stringify({ ok: false, error: e?.message || "ack timeout" }));
+            }
         } catch (e) {
             console.error("[event-service] /orders error:", e);
             res.writeHead(500, { "Content-Type": "application/json" });
@@ -266,6 +465,9 @@ wss.on("connection", (ws) => {
                 orders: EVENTS_CHANNEL,
                 commands: ORDERS_CHANNEL,
                 prices: PRICES_CHANNEL,
+                balances: BALANCES_CHANNEL,
+                chartsRequest: CHART_REQ_CHANNEL,
+                charts: CHARTS_CHANNEL,
                 symbolRequest: SYMBOL_REQ_CHANNEL,
                 symbolResponse: SYMBOL_RES_CHANNEL,
             },
@@ -313,8 +515,28 @@ async function startRedisSubscriber() {
         );
     };
 
-    await sub.subscribe(EVENTS_CHANNEL, (message) => forward(EVENTS_CHANNEL, message));
+    await sub.subscribe(EVENTS_CHANNEL, (message) => {
+        // 1) Resolve /orders ACK waiters
+        try {
+            const payload = JSON.parse(message);
+            const t = String(payload?.type || "");
+            const orderId = payload?.orderId;
+
+            if ((t === "ORDER_ACK" || t === "ORDER_REJECTED") && orderId && pendingAcks.has(String(orderId))) {
+                const p = pendingAcks.get(String(orderId));
+                clearTimeout(p.timeout);
+                pendingAcks.delete(String(orderId));
+                p.resolve(payload);
+            }
+        } catch {
+            // ignore
+        }
+
+        forward(EVENTS_CHANNEL, message);
+    });
     await sub.subscribe(PRICES_CHANNEL, (message) => forward(PRICES_CHANNEL, message));
+    await sub.subscribe(CHARTS_CHANNEL, (message) => forward(CHARTS_CHANNEL, message));
+    await sub.subscribe(BALANCES_CHANNEL, (message) => forward(BALANCES_CHANNEL, message));
     await sub.subscribe(SYMBOL_RES_CHANNEL, (message) => {
         try {
             const payload = JSON.parse(message);
@@ -337,10 +559,35 @@ async function startRedisSubscriber() {
 
         forward(SYMBOL_RES_CHANNEL, message);
     });
+    await sub.subscribe(ACCOUNT_RES_CHANNEL, (message) => {
+        try {
+            const payload = JSON.parse(message);
+            const id = payload?.id;
+            if (id && pending.has(id)) {
+                const p = pending.get(id);
+                clearTimeout(p.timeout);
+                pending.delete(id);
+                if (payload?.ok === false) p.reject(new Error(payload?.error || "account info failed"));
+                else p.resolve(payload?.data);
+            }
+
+            // Warm cache if ok
+            if (payload?.ok === true && payload?.userId && payload?.data) {
+                accountCacheSet(payload.userId, payload.data);
+            }
+        } catch {
+            // ignore
+        }
+
+        forward(ACCOUNT_RES_CHANNEL, message);
+    });
 
     console.log(`[event-service] subscribed to: ${EVENTS_CHANNEL}`);
     console.log(`[event-service] subscribed to: ${PRICES_CHANNEL}`);
+    console.log(`[event-service] subscribed to: ${CHARTS_CHANNEL}`);
     console.log(`[event-service] subscribed to: ${SYMBOL_RES_CHANNEL}`);
+    console.log(`[event-service] subscribed to: ${BALANCES_CHANNEL}`);
+    console.log(`[event-service] subscribed to: ${ACCOUNT_RES_CHANNEL}`);
 
     return sub;
 }
@@ -381,6 +628,10 @@ async function startRedisSubscriber() {
             for (const [id, p] of pending) {
                 clearTimeout(p.timeout);
                 pending.delete(id);
+            }
+            for (const [oid, p] of pendingAcks) {
+                clearTimeout(p.timeout);
+                pendingAcks.delete(oid);
             }
 
             if (redisSub) await redisSub.quit();

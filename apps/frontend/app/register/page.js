@@ -1,22 +1,18 @@
-
-
 "use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { z } from "zod";
+import Image from "next/image"; // Assuming you want to show the logo like the main app
 import { setToken, decodeToken } from "../lib/auth";
+import Link from "next/link";
 
 // Signup schema: email + password + Binance keys
 const signupSchema = z
     .object({
         email: z.string().email("Enter a valid email address"),
-        password: z
-            .string()
-            .min(6, "Password must be at least 6 characters long"),
-        confirmPassword: z
-            .string()
-            .min(6, "Confirm your password"),
+        password: z.string().min(6, "Password must be at least 6 characters long"),
+        confirmPassword: z.string().min(6, "Confirm your password"),
         binanceApiKey: z.string().min(1, "Binance API key is required"),
         binanceSecretKey: z.string().min(1, "Binance secret key is required"),
     })
@@ -41,6 +37,10 @@ export default function SignupPage() {
 
     function handleChange(e) {
         setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+        // Clear specific field error when user types
+        if (errors[e.target.name]) {
+            setErrors((prev) => ({ ...prev, [e.target.name]: undefined }));
+        }
     }
 
     async function onSubmit(e) {
@@ -51,7 +51,7 @@ export default function SignupPage() {
         const parsed = signupSchema.safeParse(form);
         if (!parsed.success) {
             const fieldErrors = {};
-            parsed.error.errors.forEach((err) => {
+            parsed.error.issues.forEach((err) => {
                 const key = err.path?.[0] || "form";
                 fieldErrors[key] = err.message;
             });
@@ -61,7 +61,6 @@ export default function SignupPage() {
 
         try {
             setLoading(true);
-
             const baseUrl = (process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8080").replace(/\/$/, "");
             const res = await fetch(`${baseUrl}/auth/register`, {
                 method: "POST",
@@ -81,15 +80,9 @@ export default function SignupPage() {
             }
 
             setToken(data.token);
-
-            // Decode JWT payload (frontend-only) and persist userId
             const decoded = decodeToken();
             const userId = decoded?.userId || decoded?.id || decoded?.sub || null;
-            if (userId) {
-                localStorage.setItem("userId", String(userId));
-            } else {
-                console.warn("JWT decoded but userId claim missing:", decoded);
-            }
+            if (userId) localStorage.setItem("userId", String(userId));
 
             router.push("/trade");
         } catch (err) {
@@ -99,116 +92,89 @@ export default function SignupPage() {
         }
     }
 
+    // Shared Input Component for consistency
+    const InputField = ({ label, name, type = "text", placeholder }) => (
+        <div>
+            <label className="block text-xs font-medium text-neutral-400 mb-1.5 ml-1">
+                {label}
+            </label>
+            <div className={`flex items-center px-3 py-2.5 rounded-lg border transition-all ${errors[name]
+                ? "bg-rose-950/10 border-rose-500/50 focus-within:border-rose-500"
+                : "bg-[#09090b] border-white/10 focus-within:border-white/30"
+                }`}>
+                <input
+                    name={name}
+                    type={type}
+                    value={form[name]}
+                    onChange={handleChange}
+                    className="bg-transparent text-sm w-full outline-none text-neutral-200 placeholder:text-neutral-600"
+                    placeholder={placeholder}
+                    autoComplete="off"
+                />
+            </div>
+            {errors[name] && <p className="text-xs text-rose-400 mt-1.5 ml-1">{errors[name]}</p>}
+        </div>
+    );
+
     return (
-        <main className="min-h-screen flex items-center justify-center bg-neutral-950 text-neutral-100">
-            <div className="w-full max-w-md rounded-xl border border-neutral-800 bg-neutral-900 p-6 shadow-lg">
-                <h1 className="text-2xl font-semibold mb-2">Create account</h1>
-                <p className="text-sm text-neutral-400 mb-6">
-                    Use your Binance Testnet keys. These are stored encrypted.
-                </p>
+        <main className="min-h-screen w-full flex items-center justify-center bg-[#09090b] text-neutral-200 p-4">
+            <div className="w-full max-w-md space-y-6">
 
-                <form onSubmit={onSubmit} className="space-y-4">
-                    <div>
-                        <label className="block text-sm mb-1">Email</label>
-                        <input
-                            name="email"
-                            type="email"
-                            value={form.email}
-                            onChange={handleChange}
-                            className="w-full rounded-md bg-neutral-800 border border-neutral-700 px-3 py-2 outline-none focus:border-neutral-500"
-                            placeholder="you@example.com"
-                            autoComplete="email"
-                        />
-                        {errors.email && (
-                            <p className="text-xs text-red-400 mt-1">{errors.email}</p>
-                        )}
+                {/* Header / Logo */}
+                <div className="flex flex-col items-center text-center space-y-2">
+                    <div className="flex items-center gap-2 mb-2">
+                        <Image src="/logo.svg" alt="Logo" className="invert opacity-90" width={150} height={100} />
                     </div>
-
-                    <div>
-                        <label className="block text-sm mb-1">Password</label>
-                        <input
-                            name="password"
-                            type="password"
-                            value={form.password}
-                            onChange={handleChange}
-                            className="w-full rounded-md bg-neutral-800 border border-neutral-700 px-3 py-2 outline-none focus:border-neutral-500"
-                            placeholder="••••••••"
-                            autoComplete="new-password"
-                        />
-                        {errors.password && (
-                            <p className="text-xs text-red-400 mt-1">{errors.password}</p>
-                        )}
-                    </div>
-
-                    <div>
-                        <label className="block text-sm mb-1">Confirm password</label>
-                        <input
-                            name="confirmPassword"
-                            type="password"
-                            value={form.confirmPassword}
-                            onChange={handleChange}
-                            className="w-full rounded-md bg-neutral-800 border border-neutral-700 px-3 py-2 outline-none focus:border-neutral-500"
-                            placeholder="••••••••"
-                            autoComplete="new-password"
-                        />
-                        {errors.confirmPassword && (
-                            <p className="text-xs text-red-400 mt-1">{errors.confirmPassword}</p>
-                        )}
-                    </div>
-
-                    <div>
-                        <label className="block text-sm mb-1">Binance API key</label>
-                        <input
-                            name="binanceApiKey"
-                            type="text"
-                            value={form.binanceApiKey}
-                            onChange={handleChange}
-                            className="w-full rounded-md bg-neutral-800 border border-neutral-700 px-3 py-2 outline-none focus:border-neutral-500"
-                            placeholder="Paste API key"
-                            autoComplete="off"
-                        />
-                        {errors.binanceApiKey && (
-                            <p className="text-xs text-red-400 mt-1">{errors.binanceApiKey}</p>
-                        )}
-                    </div>
-
-                    <div>
-                        <label className="block text-sm mb-1">Binance secret key</label>
-                        <input
-                            name="binanceSecretKey"
-                            type="password"
-                            value={form.binanceSecretKey}
-                            onChange={handleChange}
-                            className="w-full rounded-md bg-neutral-800 border border-neutral-700 px-3 py-2 outline-none focus:border-neutral-500"
-                            placeholder="Paste secret key"
-                            autoComplete="off"
-                        />
-                        {errors.binanceSecretKey && (
-                            <p className="text-xs text-red-400 mt-1">{errors.binanceSecretKey}</p>
-                        )}
-                    </div>
-
-                    <button
-                        type="submit"
-                        disabled={loading}
-                        className="w-full mt-2 rounded-md bg-white text-black py-2 font-medium disabled:opacity-60"
-                    >
-                        {loading ? "Creating…" : "Create account"}
-                    </button>
-                </form>
-
-                <div className="mt-6 text-sm text-neutral-400 text-center">
-                    <span>Already have an account? </span>
-                    <button
-                        type="button"
-                        onClick={() => router.push("/login")}
-                        className="text-white underline underline-offset-4 hover:opacity-80"
-                    >
-                        Sign in
-                    </button>
+                    <h1 className="text-2xl font-bold tracking-tight text-white">Create an account</h1>
+                    <p className="text-sm text-neutral-400">Enter your Binance Testnet keys to get started.</p>
                 </div>
 
-                {serverMsg && <p className="text-sm text-red-400 mt-4">{serverMsg}</p>}
+                {/* Card */}
+                <div className="bg-[#111] border border-white/10 rounded-2xl p-6 md:p-8 shadow-2xl shadow-black/50">
+                    <form onSubmit={onSubmit} className="space-y-5">
+                        <InputField label="Email" name="email" type="email" placeholder="name@example.com" />
+
+                        <div className="grid grid-cols-2 gap-4">
+                            <InputField label="Password" name="password" type="password" placeholder="••••••" />
+                            <InputField label="Confirm" name="confirmPassword" type="password" placeholder="••••••" />
+                        </div>
+
+                        <div className="space-y-5 pt-2">
+                            <div className="flex items-center gap-2">
+                                <div className="h-px bg-white/10 flex-1"></div>
+                                <span className="text-[10px] uppercase tracking-widest text-neutral-500 font-semibold">API Keys</span>
+                                <div className="h-px bg-white/10 flex-1"></div>
+                            </div>
+                            <InputField label="Binance API Key" name="binanceApiKey" placeholder="Paste your API Key" />
+                            <InputField label="Binance Secret Key" name="binanceSecretKey" type="password" placeholder="Paste your Secret Key" />
+                            <Link href="https://testnet.binance.vision" target="_blank" className="text-xs text-neutral-400 hover:underline underline-offset-4 decoration-neutral-700 transition-all">
+                                Don't have Testnet keys? Create them here.
+                            </Link>
+                        </div>
+
+                        <button
+                            type="submit"
+                            disabled={loading}
+                            className="w-full py-3 text-sm font-bold bg-white text-black rounded-lg hover:bg-neutral-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all active:scale-[0.98] mt-2"
+                        >
+                            {loading ? "Creating account..." : "Sign Up"}
+                        </button>
+                    </form>
+
+                    {serverMsg && (
+                        <div className="mt-4 p-3 rounded-lg bg-rose-500/10 border border-rose-500/20 text-rose-400 text-sm text-center">
+                            {serverMsg}
+                        </div>
+                    )}
+                </div>
+
+                {/* Footer Link */}
+                <p className="text-center text-sm text-neutral-500">
+                    Already have an account?{" "}
+                    <button onClick={() => router.push("/login")} className="text-white hover:underline underline-offset-4 decoration-neutral-700 transition-all">
+                        Sign in
+                    </button>
+                </p>
             </div>
         </main>
     );
