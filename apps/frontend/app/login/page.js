@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { z } from "zod";
 import Image from "next/image";
 import { setToken, decodeToken } from "../lib/auth";
+import "dotenv/config";
 
 const loginSchema = z.object({
     email: z.string().email("Enter a valid email address"),
@@ -43,7 +44,7 @@ export default function LoginPage() {
 
         try {
             setLoading(true);
-            const baseUrl = (process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8080").replace(/\/$/, "");
+            const baseUrl = (process.env.NEXT_PUBLIC_BACKEND_URL).replace(/\/$/, "");
             const res = await fetch(`${baseUrl}/auth/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },

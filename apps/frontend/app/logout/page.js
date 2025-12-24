@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import "dotenv/config";
 
 export default function Logout() {
     const router = useRouter();

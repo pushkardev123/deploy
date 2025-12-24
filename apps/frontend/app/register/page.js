@@ -6,6 +6,7 @@ import { z } from "zod";
 import Image from "next/image"; // Assuming you want to show the logo like the main app
 import { setToken, decodeToken } from "../lib/auth";
 import Link from "next/link";
+import "dotenv/config";
 
 // Signup schema: email + password + Binance keys
 const signupSchema = z

@@ -226,9 +226,9 @@ function TradePage() {
     // Stable insertion order for the table
     const symbolOrderRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])([]);
     const latestTsRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const eventBaseUrl = (("TURBOPACK compile-time value", "http://localhost:8081") || "http://localhost:8081").replace(/\/$/, "");
+    const eventBaseUrl = (("TURBOPACK compile-time value", "events.devpushkar.com") || "http://localhost:8081").replace(/\/$/, "");
     const wsBaseUrl = (process.env.NEXT_PUBLIC_WS_URL || eventBaseUrl.replace(/^https?:\/\//, (m)=>m === "https://" ? "wss://" : "ws://")).replace(/\/$/, "");
-    const apiBaseUrl = (("TURBOPACK compile-time value", "http://localhost:8080") || "http://localhost:8080").replace(/\/$/, "");
+    const apiBaseUrl = (("TURBOPACK compile-time value", "api.devpushkar.com") || "http://localhost:8080").replace(/\/$/, "");
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const token = (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$app$2f$lib$2f$auth$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getToken"])();
         const userId = (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$app$2f$lib$2f$auth$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getUserId"])();

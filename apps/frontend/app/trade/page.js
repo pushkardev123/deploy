@@ -15,6 +15,7 @@ import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 
 import { getToken, getUserId } from "../lib/auth";
+import "dotenv/config";
 
 const inter = Inter({
     subsets: ["latin"],

@@ -108,11 +108,13 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lightweight$
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$md$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-icons/md/index.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$cg$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-icons/cg/index.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$app$2f$lib$2f$auth$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/apps/frontend/app/lib/auth.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$dotenv$2f$config$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/dotenv/config.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-icons/fi/index.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$zod$2f$v4$2f$locales$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/apps/frontend/node_modules/zod/v4/locales/index.js [app-client] (ecmascript) <locals>");
 ;
 var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature();
 "use client";
+;
 ;
 ;
 ;
@@ -228,9 +230,9 @@ function TradePage() {
     // Stable insertion order for the table
     const symbolOrderRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])([]);
     const latestTsRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const eventBaseUrl = (("TURBOPACK compile-time value", "http://localhost:8081") || "http://localhost:8081").replace(/\/$/, "");
+    const eventBaseUrl = (("TURBOPACK compile-time value", "https://events.devpushkar.com") || "http://localhost:8081").replace(/\/$/, "");
     const wsBaseUrl = (__TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_WS_URL || eventBaseUrl.replace(/^https?:\/\//, (m)=>m === "https://" ? "wss://" : "ws://")).replace(/\/$/, "");
-    const apiBaseUrl = (("TURBOPACK compile-time value", "http://localhost:8080") || "http://localhost:8080").replace(/\/$/, "");
+    const apiBaseUrl = (("TURBOPACK compile-time value", "https://api.devpushkar.com") || "http://localhost:8080").replace(/\/$/, "");
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "TradePage.useEffect": ()=>{
             const token = (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$app$2f$lib$2f$auth$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getToken"])();
@@ -1209,17 +1211,17 @@ function TradePage() {
                                     height: 100
                                 }, void 0, false, {
                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                    lineNumber: 1139,
+                                    lineNumber: 1140,
                                     columnNumber: 29
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                lineNumber: 1138,
+                                lineNumber: 1139,
                                 columnNumber: 25
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                            lineNumber: 1137,
+                            lineNumber: 1138,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1235,27 +1237,27 @@ function TradePage() {
                                                     className: "animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
                                                 }, void 0, false, {
                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                    lineNumber: 1147,
+                                                    lineNumber: 1148,
                                                     columnNumber: 33
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     className: "relative inline-flex rounded-full h-2 w-2 bg-emerald-500"
                                                 }, void 0, false, {
                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                    lineNumber: 1148,
+                                                    lineNumber: 1149,
                                                     columnNumber: 33
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                            lineNumber: 1146,
+                                            lineNumber: 1147,
                                             columnNumber: 29
                                         }, this),
                                         "Live"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                    lineNumber: 1145,
+                                    lineNumber: 1146,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1265,21 +1267,21 @@ function TradePage() {
                                         className: `px-3 py-3 text-xs font-medium rounded-full transition-all ${isDark ? "bg-neutral-800 text-white shadow-sm" : "text-neutral-500 hover:text-neutral-900 bg-white"}`,
                                         children: isDark ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$md$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MdDarkMode"], {}, void 0, false, {
                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                            lineNumber: 1158,
+                                            lineNumber: 1159,
                                             columnNumber: 43
                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$md$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MdOutlineLightMode"], {}, void 0, false, {
                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                            lineNumber: 1158,
+                                            lineNumber: 1159,
                                             columnNumber: 60
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                        lineNumber: 1154,
+                                        lineNumber: 1155,
                                         columnNumber: 29
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                    lineNumber: 1153,
+                                    lineNumber: 1154,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1292,12 +1294,12 @@ function TradePage() {
                                                 className: "text-lg"
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                lineNumber: 1174,
+                                                lineNumber: 1175,
                                                 columnNumber: 33
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                            lineNumber: 1167,
+                                            lineNumber: 1168,
                                             columnNumber: 29
                                         }, this),
                                         isProfileOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1311,7 +1313,7 @@ function TradePage() {
                                                             children: "My Account"
                                                         }, void 0, false, {
                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                            lineNumber: 1187,
+                                                            lineNumber: 1188,
                                                             columnNumber: 41
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1332,26 +1334,26 @@ function TradePage() {
                                                                         d: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                        lineNumber: 1199,
+                                                                        lineNumber: 1200,
                                                                         columnNumber: 135
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                    lineNumber: 1199,
+                                                                    lineNumber: 1200,
                                                                     columnNumber: 45
                                                                 }, this),
                                                                 "Edit Details"
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                            lineNumber: 1192,
+                                                            lineNumber: 1193,
                                                             columnNumber: 41
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: `my-1 h-px ${isDark ? "bg-white/5" : "bg-black/5"}`
                                                         }, void 0, false, {
                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                            lineNumber: 1204,
+                                                            lineNumber: 1205,
                                                             columnNumber: 41
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1372,25 +1374,25 @@ function TradePage() {
                                                                         d: "M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                        lineNumber: 1214,
+                                                                        lineNumber: 1215,
                                                                         columnNumber: 124
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                    lineNumber: 1214,
+                                                                    lineNumber: 1215,
                                                                     columnNumber: 45
                                                                 }, this),
                                                                 "Logout"
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                            lineNumber: 1207,
+                                                            lineNumber: 1208,
                                                             columnNumber: 41
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                    lineNumber: 1185,
+                                                    lineNumber: 1186,
                                                     columnNumber: 37
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1401,41 +1403,41 @@ function TradePage() {
                                                         children: "Close Menu"
                                                     }, void 0, false, {
                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                        lineNumber: 1221,
+                                                        lineNumber: 1222,
                                                         columnNumber: 41
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                    lineNumber: 1220,
+                                                    lineNumber: 1221,
                                                     columnNumber: 37
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                            lineNumber: 1179,
+                                            lineNumber: 1180,
                                             columnNumber: 33
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                    lineNumber: 1166,
+                                    lineNumber: 1167,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                            lineNumber: 1143,
+                            lineNumber: 1144,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                    lineNumber: 1136,
+                    lineNumber: 1137,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                lineNumber: 1135,
+                lineNumber: 1136,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1446,7 +1448,7 @@ function TradePage() {
                         children: "Portfolio & Trade"
                     }, void 0, false, {
                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                        lineNumber: 1237,
+                        lineNumber: 1238,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1469,7 +1471,7 @@ function TradePage() {
                                                             children: "BUY"
                                                         }, void 0, false, {
                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                            lineNumber: 1248,
+                                                            lineNumber: 1249,
                                                             columnNumber: 37
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1481,13 +1483,13 @@ function TradePage() {
                                                             children: "SELL"
                                                         }, void 0, false, {
                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                            lineNumber: 1256,
+                                                            lineNumber: 1257,
                                                             columnNumber: 37
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                    lineNumber: 1247,
+                                                    lineNumber: 1248,
                                                     columnNumber: 33
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1509,13 +1511,13 @@ function TradePage() {
                                                             children: t === "STOP_LOSS" ? "Stop Market" : t[0] + t.slice(1).toLowerCase()
                                                         }, t, false, {
                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                            lineNumber: 1275,
+                                                            lineNumber: 1276,
                                                             columnNumber: 45
                                                         }, this);
                                                     })
                                                 }, void 0, false, {
                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                    lineNumber: 1270,
+                                                    lineNumber: 1271,
                                                     columnNumber: 33
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1529,12 +1531,12 @@ function TradePage() {
                                                                         children: priceLabel
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                        lineNumber: 1296,
+                                                                        lineNumber: 1297,
                                                                         columnNumber: 45
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                    lineNumber: 1295,
+                                                                    lineNumber: 1296,
                                                                     columnNumber: 41
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1565,7 +1567,7 @@ function TradePage() {
                                                                             }
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                            lineNumber: 1299,
+                                                                            lineNumber: 1300,
                                                                             columnNumber: 45
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1573,13 +1575,13 @@ function TradePage() {
                                                                             children: "USDT"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                            lineNumber: 1315,
+                                                                            lineNumber: 1316,
                                                                             columnNumber: 45
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                    lineNumber: 1298,
+                                                                    lineNumber: 1299,
                                                                     columnNumber: 41
                                                                 }, this),
                                                                 orderType === "MARKET" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1587,7 +1589,7 @@ function TradePage() {
                                                                     children: "Executes at best price."
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                    lineNumber: 1318,
+                                                                    lineNumber: 1319,
                                                                     columnNumber: 68
                                                                 }, this),
                                                                 (formErrors.limitPrice || formErrors.stopPrice || formErrors.notional) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1595,13 +1597,13 @@ function TradePage() {
                                                                     children: formErrors.limitPrice || formErrors.stopPrice || formErrors.notional
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                    lineNumber: 1320,
+                                                                    lineNumber: 1321,
                                                                     columnNumber: 45
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                            lineNumber: 1294,
+                                                            lineNumber: 1295,
                                                             columnNumber: 37
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1614,7 +1616,7 @@ function TradePage() {
                                                                             children: "Quantity"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                            lineNumber: 1326,
+                                                                            lineNumber: 1327,
                                                                             columnNumber: 45
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1634,7 +1636,7 @@ function TradePage() {
                                                                                     placeholder: "0.00"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                    lineNumber: 1328,
+                                                                                    lineNumber: 1329,
                                                                                     columnNumber: 49
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1642,13 +1644,13 @@ function TradePage() {
                                                                                     children: selectedSymbol.replace("USDT", "")
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                    lineNumber: 1337,
+                                                                                    lineNumber: 1338,
                                                                                     columnNumber: 49
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                            lineNumber: 1327,
+                                                                            lineNumber: 1328,
                                                                             columnNumber: 45
                                                                         }, this),
                                                                         formErrors.qty && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1656,13 +1658,13 @@ function TradePage() {
                                                                             children: formErrors.qty
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                            lineNumber: 1339,
+                                                                            lineNumber: 1340,
                                                                             columnNumber: 64
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                    lineNumber: 1325,
+                                                                    lineNumber: 1326,
                                                                     columnNumber: 41
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1672,7 +1674,7 @@ function TradePage() {
                                                                             children: "Total"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                            lineNumber: 1342,
+                                                                            lineNumber: 1343,
                                                                             columnNumber: 45
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1686,7 +1688,7 @@ function TradePage() {
                                                                                     readOnly: true
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                    lineNumber: 1344,
+                                                                                    lineNumber: 1345,
                                                                                     columnNumber: 49
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1694,25 +1696,25 @@ function TradePage() {
                                                                                     children: "USDT"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                    lineNumber: 1351,
+                                                                                    lineNumber: 1352,
                                                                                     columnNumber: 49
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                            lineNumber: 1343,
+                                                                            lineNumber: 1344,
                                                                             columnNumber: 45
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                    lineNumber: 1341,
+                                                                    lineNumber: 1342,
                                                                     columnNumber: 41
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                            lineNumber: 1324,
+                                                            lineNumber: 1325,
                                                             columnNumber: 37
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1723,7 +1725,7 @@ function TradePage() {
                                                                     children: "Last Price"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                    lineNumber: 1357,
+                                                                    lineNumber: 1358,
                                                                     columnNumber: 41
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1731,13 +1733,13 @@ function TradePage() {
                                                                     children: formatPrice(currentPrice)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                    lineNumber: 1358,
+                                                                    lineNumber: 1359,
                                                                     columnNumber: 41
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                            lineNumber: 1356,
+                                                            lineNumber: 1357,
                                                             columnNumber: 37
                                                         }, this),
                                                         symbolInfoStatus === "error" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1745,7 +1747,7 @@ function TradePage() {
                                                             children: symbolInfoError
                                                         }, void 0, false, {
                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                            lineNumber: 1362,
+                                                            lineNumber: 1363,
                                                             columnNumber: 41
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1761,24 +1763,24 @@ function TradePage() {
                                                             }, void 0, true)
                                                         }, void 0, false, {
                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                            lineNumber: 1365,
+                                                            lineNumber: 1366,
                                                             columnNumber: 37
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                    lineNumber: 1293,
+                                                    lineNumber: 1294,
                                                     columnNumber: 33
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                            lineNumber: 1245,
+                                            lineNumber: 1246,
                                             columnNumber: 29
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                        lineNumber: 1244,
+                                        lineNumber: 1245,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1792,7 +1794,7 @@ function TradePage() {
                                                         children: "Assets"
                                                     }, void 0, false, {
                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                        lineNumber: 1386,
+                                                        lineNumber: 1387,
                                                         columnNumber: 33
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1812,23 +1814,23 @@ function TradePage() {
                                                                 d: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                lineNumber: 1393,
+                                                                lineNumber: 1394,
                                                                 columnNumber: 174
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                            lineNumber: 1393,
+                                                            lineNumber: 1394,
                                                             columnNumber: 37
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                        lineNumber: 1387,
+                                                        lineNumber: 1388,
                                                         columnNumber: 33
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                lineNumber: 1385,
+                                                lineNumber: 1386,
                                                 columnNumber: 29
                                             }, this),
                                             balancesError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1836,7 +1838,7 @@ function TradePage() {
                                                 children: balancesError
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                lineNumber: 1397,
+                                                lineNumber: 1398,
                                                 columnNumber: 47
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1863,7 +1865,7 @@ function TradePage() {
                                                                                 children: "$"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                lineNumber: 1411,
+                                                                                lineNumber: 1412,
                                                                                 columnNumber: 53
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1871,13 +1873,13 @@ function TradePage() {
                                                                                 children: "USDT"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                lineNumber: 1412,
+                                                                                lineNumber: 1413,
                                                                                 columnNumber: 53
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                        lineNumber: 1410,
+                                                                        lineNumber: 1411,
                                                                         columnNumber: 49
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1887,18 +1889,18 @@ function TradePage() {
                                                                             children: trimZeros(usdtFree.toFixed(2))
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                            lineNumber: 1415,
+                                                                            lineNumber: 1416,
                                                                             columnNumber: 53
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                        lineNumber: 1414,
+                                                                        lineNumber: 1415,
                                                                         columnNumber: 49
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                lineNumber: 1409,
+                                                                lineNumber: 1410,
                                                                 columnNumber: 45
                                                             }, this),
                                                             uniqPinnedBases.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1919,7 +1921,7 @@ function TradePage() {
                                                                                 children: asset
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                lineNumber: 1432,
+                                                                                lineNumber: 1433,
                                                                                 columnNumber: 65
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1930,7 +1932,7 @@ function TradePage() {
                                                                                         children: trimZeros(free.toFixed(4))
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                        lineNumber: 1439,
+                                                                                        lineNumber: 1440,
                                                                                         columnNumber: 69
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1938,25 +1940,25 @@ function TradePage() {
                                                                                         children: est !== null ? `≈ $${formatPrice(est)}` : "—"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                        lineNumber: 1440,
+                                                                                        lineNumber: 1441,
                                                                                         columnNumber: 69
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                lineNumber: 1438,
+                                                                                lineNumber: 1439,
                                                                                 columnNumber: 65
                                                                             }, this)
                                                                         ]
                                                                     }, asset, true, {
                                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                        lineNumber: 1431,
+                                                                        lineNumber: 1432,
                                                                         columnNumber: 61
                                                                     }, this);
                                                                 })
                                                             }, void 0, false, {
                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                lineNumber: 1420,
+                                                                lineNumber: 1421,
                                                                 columnNumber: 49
                                                             }, this),
                                                             balancesUpdatedAt && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1967,7 +1969,7 @@ function TradePage() {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                lineNumber: 1449,
+                                                                lineNumber: 1450,
                                                                 columnNumber: 67
                                                             }, this)
                                                         ]
@@ -1975,19 +1977,19 @@ function TradePage() {
                                                 })()
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                lineNumber: 1399,
+                                                lineNumber: 1400,
                                                 columnNumber: 29
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                        lineNumber: 1384,
+                                        lineNumber: 1385,
                                         columnNumber: 25
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                lineNumber: 1241,
+                                lineNumber: 1242,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2011,20 +2013,20 @@ function TradePage() {
                                                                         children: "/USDT"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                        lineNumber: 1463,
+                                                                        lineNumber: 1464,
                                                                         columnNumber: 122
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                lineNumber: 1463,
+                                                                lineNumber: 1464,
                                                                 columnNumber: 37
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                 className: "h-4 w-[1px] bg-neutral-200 dark:bg-white/10"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                lineNumber: 1464,
+                                                                lineNumber: 1465,
                                                                 columnNumber: 37
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2032,13 +2034,13 @@ function TradePage() {
                                                                 children: formatPrice(currentPrice)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                lineNumber: 1465,
+                                                                lineNumber: 1466,
                                                                 columnNumber: 37
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                        lineNumber: 1462,
+                                                        lineNumber: 1463,
                                                         columnNumber: 33
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2054,18 +2056,18 @@ function TradePage() {
                                                                 children: t
                                                             }, t, false, {
                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                lineNumber: 1472,
+                                                                lineNumber: 1473,
                                                                 columnNumber: 41
                                                             }, this))
                                                     }, void 0, false, {
                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                        lineNumber: 1470,
+                                                        lineNumber: 1471,
                                                         columnNumber: 33
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                lineNumber: 1461,
+                                                lineNumber: 1462,
                                                 columnNumber: 29
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2075,18 +2077,18 @@ function TradePage() {
                                                     className: "w-full h-full"
                                                 }, void 0, false, {
                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                    lineNumber: 1486,
+                                                    lineNumber: 1487,
                                                     columnNumber: 33
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                lineNumber: 1485,
+                                                lineNumber: 1486,
                                                 columnNumber: 29
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                        lineNumber: 1460,
+                                        lineNumber: 1461,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2134,12 +2136,12 @@ function TradePage() {
                                                                 children: t.label
                                                             }, t.id, false, {
                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                lineNumber: 1501,
+                                                                lineNumber: 1502,
                                                                 columnNumber: 41
                                                             }, this))
                                                     }, void 0, false, {
                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                        lineNumber: 1495,
+                                                        lineNumber: 1496,
                                                         columnNumber: 33
                                                     }, this),
                                                     activeTab === "trades" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2157,12 +2159,12 @@ function TradePage() {
                                                                     d: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                    lineNumber: 1520,
+                                                                    lineNumber: 1521,
                                                                     columnNumber: 156
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                lineNumber: 1520,
+                                                                lineNumber: 1521,
                                                                 columnNumber: 41
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2172,19 +2174,19 @@ function TradePage() {
                                                                 placeholder: "Filter Symbol"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                lineNumber: 1521,
+                                                                lineNumber: 1522,
                                                                 columnNumber: 41
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                        lineNumber: 1519,
+                                                        lineNumber: 1520,
                                                         columnNumber: 37
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                lineNumber: 1493,
+                                                lineNumber: 1494,
                                                 columnNumber: 29
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2210,7 +2212,7 @@ function TradePage() {
                                                                                 children: h
                                                                             }, h, false, {
                                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                lineNumber: 1536,
+                                                                                lineNumber: 1537,
                                                                                 columnNumber: 158
                                                                             }, this)),
                                                                         activeTab === "orders" && [
@@ -2225,7 +2227,7 @@ function TradePage() {
                                                                                 children: h
                                                                             }, h, false, {
                                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                lineNumber: 1537,
+                                                                                lineNumber: 1538,
                                                                                 columnNumber: 135
                                                                             }, this)),
                                                                         activeTab === "trades" && [
@@ -2238,18 +2240,18 @@ function TradePage() {
                                                                                 children: h
                                                                             }, h, false, {
                                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                lineNumber: 1538,
+                                                                                lineNumber: 1539,
                                                                                 columnNumber: 120
                                                                             }, this))
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                    lineNumber: 1535,
+                                                                    lineNumber: 1536,
                                                                     columnNumber: 45
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                lineNumber: 1534,
+                                                                lineNumber: 1535,
                                                                 columnNumber: 41
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -2262,12 +2264,12 @@ function TradePage() {
                                                                             children: "Loading positions..."
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                            lineNumber: 1544,
+                                                                            lineNumber: 1545,
                                                                             columnNumber: 72
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                        lineNumber: 1544,
+                                                                        lineNumber: 1545,
                                                                         columnNumber: 68
                                                                     }, this) : positionsError ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2276,12 +2278,12 @@ function TradePage() {
                                                                             children: positionsError
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                            lineNumber: 1545,
+                                                                            lineNumber: 1546,
                                                                             columnNumber: 74
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                        lineNumber: 1545,
+                                                                        lineNumber: 1546,
                                                                         columnNumber: 70
                                                                     }, this) : positionsPage.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2290,12 +2292,12 @@ function TradePage() {
                                                                             children: "No open positions"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                            lineNumber: 1546,
+                                                                            lineNumber: 1547,
                                                                             columnNumber: 90
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                        lineNumber: 1546,
+                                                                        lineNumber: 1547,
                                                                         columnNumber: 86
                                                                     }, this) : positionsPage.map((p)=>{
                                                                         const sym = String(p.symbol || "").toUpperCase();
@@ -2313,7 +2315,7 @@ function TradePage() {
                                                                                     children: sym
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                    lineNumber: 1557,
+                                                                                    lineNumber: 1558,
                                                                                     columnNumber: 73
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2321,7 +2323,7 @@ function TradePage() {
                                                                                     children: trimZeros(qtyNum.toFixed(6))
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                    lineNumber: 1558,
+                                                                                    lineNumber: 1559,
                                                                                     columnNumber: 73
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2329,7 +2331,7 @@ function TradePage() {
                                                                                     children: trimZeros(entry.toFixed(6))
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                    lineNumber: 1559,
+                                                                                    lineNumber: 1560,
                                                                                     columnNumber: 73
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2337,7 +2339,7 @@ function TradePage() {
                                                                                     children: formatPrice(mark)
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                    lineNumber: 1560,
+                                                                                    lineNumber: 1561,
                                                                                     columnNumber: 73
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2348,7 +2350,7 @@ function TradePage() {
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                    lineNumber: 1561,
+                                                                                    lineNumber: 1562,
                                                                                     columnNumber: 73
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2359,13 +2361,13 @@ function TradePage() {
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                    lineNumber: 1562,
+                                                                                    lineNumber: 1563,
                                                                                     columnNumber: 73
                                                                                 }, this)
                                                                             ]
                                                                         }, p.id || `${p.userId}:${sym}`, true, {
                                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                            lineNumber: 1556,
+                                                                            lineNumber: 1557,
                                                                             columnNumber: 69
                                                                         }, this);
                                                                     })),
@@ -2376,12 +2378,12 @@ function TradePage() {
                                                                             children: "Loading orders..."
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                            lineNumber: 1570,
+                                                                            lineNumber: 1571,
                                                                             columnNumber: 69
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                        lineNumber: 1570,
+                                                                        lineNumber: 1571,
                                                                         columnNumber: 65
                                                                     }, this) : ordersPage.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2390,12 +2392,12 @@ function TradePage() {
                                                                             children: "No order history"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                            lineNumber: 1571,
+                                                                            lineNumber: 1572,
                                                                             columnNumber: 83
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                        lineNumber: 1571,
+                                                                        lineNumber: 1572,
                                                                         columnNumber: 79
                                                                     }, this) : ordersPage.map((o)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                                                             className: "hover:bg-neutral-50 dark:hover:bg-white/5 transition-colors",
@@ -2411,13 +2413,13 @@ function TradePage() {
                                                                                             onCopy: copyOrderId
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                            lineNumber: 1576,
+                                                                                            lineNumber: 1577,
                                                                                             columnNumber: 69
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                    lineNumber: 1574,
+                                                                                    lineNumber: 1575,
                                                                                     columnNumber: 65
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2426,7 +2428,7 @@ function TradePage() {
                                                                                     children: o.symbol
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                    lineNumber: 1578,
+                                                                                    lineNumber: 1579,
                                                                                     columnNumber: 65
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2436,12 +2438,12 @@ function TradePage() {
                                                                                         children: o.side
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                        lineNumber: 1580,
+                                                                                        lineNumber: 1581,
                                                                                         columnNumber: 69
                                                                                     }, this)
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                    lineNumber: 1579,
+                                                                                    lineNumber: 1580,
                                                                                     columnNumber: 65
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2449,7 +2451,7 @@ function TradePage() {
                                                                                     children: o.orderType
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                    lineNumber: 1584,
+                                                                                    lineNumber: 1585,
                                                                                     columnNumber: 65
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2457,7 +2459,7 @@ function TradePage() {
                                                                                     children: o.quantity
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                    lineNumber: 1585,
+                                                                                    lineNumber: 1586,
                                                                                     columnNumber: 65
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2467,18 +2469,18 @@ function TradePage() {
                                                                                         children: ordersById[o.orderId]?.status || o.status
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                        lineNumber: 1587,
+                                                                                        lineNumber: 1588,
                                                                                         columnNumber: 69
                                                                                     }, this)
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                    lineNumber: 1586,
+                                                                                    lineNumber: 1587,
                                                                                     columnNumber: 65
                                                                                 }, this)
                                                                             ]
                                                                         }, o.orderId, true, {
                                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                            lineNumber: 1573,
+                                                                            lineNumber: 1574,
                                                                             columnNumber: 61
                                                                         }, this))),
                                                                     activeTab === "trades" && (shown.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
@@ -2488,12 +2490,12 @@ function TradePage() {
                                                                             children: "Waiting for market data..."
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                            lineNumber: 1600,
+                                                                            lineNumber: 1601,
                                                                             columnNumber: 74
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                        lineNumber: 1600,
+                                                                        lineNumber: 1601,
                                                                         columnNumber: 70
                                                                     }, this) : shown.map(([sym, v])=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                                                             className: "hover:bg-neutral-50 dark:hover:bg-white/5 transition-colors",
@@ -2506,12 +2508,12 @@ function TradePage() {
                                                                                         children: pinned.has(sym) ? "★" : "☆"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                        lineNumber: 1604,
+                                                                                        lineNumber: 1605,
                                                                                         columnNumber: 65
                                                                                     }, this)
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                    lineNumber: 1603,
+                                                                                    lineNumber: 1604,
                                                                                     columnNumber: 61
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2520,7 +2522,7 @@ function TradePage() {
                                                                                     children: sym
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                    lineNumber: 1608,
+                                                                                    lineNumber: 1609,
                                                                                     columnNumber: 61
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2528,7 +2530,7 @@ function TradePage() {
                                                                                     children: formatPrice(v.price)
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                    lineNumber: 1609,
+                                                                                    lineNumber: 1610,
                                                                                     columnNumber: 61
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2536,35 +2538,35 @@ function TradePage() {
                                                                                     children: v.ts ? new Date(v.ts).toLocaleTimeString() : "-"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                                    lineNumber: 1610,
+                                                                                    lineNumber: 1611,
                                                                                     columnNumber: 61
                                                                                 }, this)
                                                                             ]
                                                                         }, sym, true, {
                                                                             fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                            lineNumber: 1602,
+                                                                            lineNumber: 1603,
                                                                             columnNumber: 57
                                                                         }, this)))
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                lineNumber: 1541,
+                                                                lineNumber: 1542,
                                                                 columnNumber: 41
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                        lineNumber: 1533,
+                                                        lineNumber: 1534,
                                                         columnNumber: 37
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                    lineNumber: 1532,
+                                                    lineNumber: 1533,
                                                     columnNumber: 33
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                lineNumber: 1531,
+                                                lineNumber: 1532,
                                                 columnNumber: 29
                                             }, this),
                                             (activeTab === "positions" || activeTab === "orders") && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2578,7 +2580,7 @@ function TradePage() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                        lineNumber: 1624,
+                                                        lineNumber: 1625,
                                                         columnNumber: 37
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2600,17 +2602,17 @@ function TradePage() {
                                                                         d: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                        lineNumber: 1633,
+                                                                        lineNumber: 1634,
                                                                         columnNumber: 124
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                    lineNumber: 1633,
+                                                                    lineNumber: 1634,
                                                                     columnNumber: 45
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                lineNumber: 1628,
+                                                                lineNumber: 1629,
                                                                 columnNumber: 41
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2639,12 +2641,12 @@ function TradePage() {
                                                                     className: "w-4 h-4"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                    lineNumber: 1654,
+                                                                    lineNumber: 1655,
                                                                     columnNumber: 45
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                lineNumber: 1635,
+                                                                lineNumber: 1636,
                                                                 columnNumber: 41
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2655,7 +2657,7 @@ function TradePage() {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                lineNumber: 1656,
+                                                                lineNumber: 1657,
                                                                 columnNumber: 41
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2680,48 +2682,48 @@ function TradePage() {
                                                                     className: "w-4 h-4"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                    lineNumber: 1672,
+                                                                    lineNumber: 1673,
                                                                     columnNumber: 45
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                                lineNumber: 1659,
+                                                                lineNumber: 1660,
                                                                 columnNumber: 41
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                        lineNumber: 1627,
+                                                        lineNumber: 1628,
                                                         columnNumber: 37
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                lineNumber: 1621,
+                                                lineNumber: 1622,
                                                 columnNumber: 33
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                        lineNumber: 1491,
+                                        lineNumber: 1492,
                                         columnNumber: 25
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                lineNumber: 1458,
+                                lineNumber: 1459,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                        lineNumber: 1239,
+                        lineNumber: 1240,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                lineNumber: 1236,
+                lineNumber: 1237,
                 columnNumber: 13
             }, this),
             toast.open && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2735,7 +2737,7 @@ function TradePage() {
                                 }))
                     }, void 0, false, {
                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                        lineNumber: 1685,
+                        lineNumber: 1686,
                         columnNumber: 21
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2745,7 +2747,7 @@ function TradePage() {
                                 className: `h-1.5 w-full ${toast.status === "FILLED" ? "bg-emerald-500" : toast.status === "REJECTED" ? "bg-rose-500" : "bg-neutral-500"}`
                             }, void 0, false, {
                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                lineNumber: 1687,
+                                lineNumber: 1688,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2756,7 +2758,7 @@ function TradePage() {
                                         children: toast.title
                                     }, void 0, false, {
                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                        lineNumber: 1689,
+                                        lineNumber: 1690,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2764,7 +2766,7 @@ function TradePage() {
                                         children: toast.message
                                     }, void 0, false, {
                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                        lineNumber: 1690,
+                                        lineNumber: 1691,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2782,7 +2784,7 @@ function TradePage() {
                                                 children: "View Order"
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                lineNumber: 1693,
+                                                lineNumber: 1694,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2794,37 +2796,37 @@ function TradePage() {
                                                 children: "Dismiss"
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                                lineNumber: 1699,
+                                                lineNumber: 1700,
                                                 columnNumber: 33
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                                        lineNumber: 1692,
+                                        lineNumber: 1693,
                                         columnNumber: 29
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                                lineNumber: 1688,
+                                lineNumber: 1689,
                                 columnNumber: 25
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/apps/frontend/app/trade/page.js",
-                        lineNumber: 1686,
+                        lineNumber: 1687,
                         columnNumber: 21
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/apps/frontend/app/trade/page.js",
-                lineNumber: 1684,
+                lineNumber: 1685,
                 columnNumber: 17
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/apps/frontend/app/trade/page.js",
-        lineNumber: 1133,
+        lineNumber: 1134,
         columnNumber: 9
     }, this);
 }
@@ -2864,18 +2866,18 @@ const CopyOrderButton = ({ orderId, isDark, onCopy })=>{
             className: "w-4 h-4"
         }, void 0, false, {
             fileName: "[project]/apps/frontend/app/trade/page.js",
-            lineNumber: 1752,
+            lineNumber: 1753,
             columnNumber: 23
         }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FiCopy"], {
             className: "w-4 h-4"
         }, void 0, false, {
             fileName: "[project]/apps/frontend/app/trade/page.js",
-            lineNumber: 1752,
+            lineNumber: 1753,
             columnNumber: 57
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/apps/frontend/app/trade/page.js",
-        lineNumber: 1740,
+        lineNumber: 1741,
         columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };
