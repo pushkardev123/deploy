@@ -3,9 +3,9 @@
 # TradeCO  
 **A Full-Stack, Event-Driven Trading Platform**
 
-Numatix is a production-inspired trading platform built to demonstrate advanced system design, backend architecture, real-time event processing, and frontend engineering.
+TradeCO is a production-inspired trading platform built to demonstrate advanced system design, backend architecture, real-time event processing, and frontend engineering.
 
-Instead of a CRUD-style application, Numatix models how modern trading systems are actually structured: decoupled services, asynchronous workflows, streaming data, and failure-isolated components.
+Instead of a CRUD-style application, TradeCO models how modern trading systems are actually structured: decoupled services, asynchronous workflows, streaming data, and failure-isolated components.
 
 This project was built as an engineering assignment to showcase architecture, not just features.
 
